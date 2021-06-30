@@ -10,7 +10,7 @@ import {Password} from "../services/password";
 const router = express.Router();
 
 router.post('/api/users/signin',
-[
+    [
         body('email')
             .isEmail()
             .withMessage('Email must be valid'),
@@ -21,7 +21,7 @@ router.post('/api/users/signin',
     ],
     validateRequest,
     async (req: Request, res: Response) => {
-        const {email,password} = req.body;
+        const {email, password} = req.body;
 
         const existingUser = await User.findOne({email});
         if (!existingUser) {
@@ -43,6 +43,7 @@ router.post('/api/users/signin',
         req.session.jwt = userJwt;
 
         res.status(201).send(existingUser);
-});
+    }
+);
 
 export {router as signinRouter};
