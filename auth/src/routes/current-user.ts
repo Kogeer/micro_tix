@@ -8,6 +8,7 @@ router.get(
     '/api/users/currentuser',
     currentUser,
     (req, res) => {
+        // req.currentUser come from currentUser middleware
         res.send({currentUser: req.currentUser || null});
     }
 );
