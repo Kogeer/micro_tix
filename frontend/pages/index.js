@@ -1,7 +1,16 @@
 import buildClient from "../api/build-client";
+import BaseLayout from "../components/base-layout";
 
 const Index = ({ data }) => {
-    return data.currentUser ? <h1>You are signed in</h1> : <h1>You are not signed in</h1> ;
+    return (
+        <BaseLayout data={data}>
+            {data.currentUser ? (
+                <h1>You are signed in</h1>
+            ) : (
+                <h1>You are not signed in</h1>
+            )}
+        </BaseLayout>
+    );
 };
 
 export async function getServerSideProps(context) {
