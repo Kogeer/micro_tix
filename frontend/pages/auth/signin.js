@@ -39,7 +39,7 @@ const Signin = () => {
                 />
             </div>
             {errors}
-            <button className="btn btn-primary">Sign Ip</button>
+            <button className="btn btn-primary">Sign In</button>
         </form>
     )
 };
