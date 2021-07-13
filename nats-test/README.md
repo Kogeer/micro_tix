@@ -4,4 +4,8 @@ Example:
 After that, you can access to NATS Streaming Server.  
 
 To run the publisher and listener, you can with package.json scripts.  
-With `rs` command you can restart the publisher or listen.
+With `rs` command you can restart the publisher or listen.  
+
+NATS-streaming server monitoring:
+`kubectl port-forward NATS-DEPL-POD-NAME 8222:8222`  
+You can see on localhost:8222
