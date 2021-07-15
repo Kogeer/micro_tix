@@ -20,6 +20,8 @@ stan.on('connect', () => {
     // after save the event data to DB we must send back to NATS streaming server
     // we processed the event data everything is fine!
     const options = stan.subscriptionOptions()
+        .setDeliverAllAvailable() // re deliver all of the events don't use alone this option, use it with durable subscription
+        .setDurableName('orders-service') // identifier of durable subscription
         .setManualAckMode(true);
     // use qGroup if service scale up, and one listener instance got the event!!!
     const subscription = stan.subscribe('ticket:created', 'orders-service-queue-group');
