@@ -10,6 +10,11 @@ const stan = connect('ticketing', randomBytes(4).toString('hex'), {
 stan.on('connect', () => {
     console.log('Listener connected to NATS');
 
+    stan.on('close', () => {
+        console.log('NATS connection closed!');
+        process.exit();
+    })
+
     // this option for save event data secure if example db connection lost
     // and that is why we use acknowledgement mode manually
     // after save the event data to DB we must send back to NATS streaming server
@@ -29,3 +34,7 @@ stan.on('connect', () => {
         msg.ack(); // processed the event data everything is fine!
     });
 });
+
+// First close the connection!!!
+process.on('SIGINT', () => stan.close()); // watching interrupt signals
+process.on('SIGTERM', () => stan.close()); // watching terminal signals
