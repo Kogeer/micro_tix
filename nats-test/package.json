@@ -6,7 +6,8 @@
   "scripts": {
     "publish": "ts-node-dev --rs --notify false src/publisher.ts",
     "listen" : "ts-node-dev --rs --notify false src/listener.ts",
-    "listen-example" : "ts-node-dev --rs --notify false src/listener-example.ts"
+    "listen-example" : "ts-node-dev --rs --notify false src/listener-example.ts",
+    "publish-example" : "ts-node-dev --rs --notify false src/publisher-example.ts"
   },
   "keywords": [],
   "author": "",
