@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 import {OrderStatus} from "@kogeertix/common";
 import {TicketDocument} from "./ticket";
 
+export {OrderStatus};
+
 interface OrderAttributes {
     userId: string;
     status: OrderStatus;
