@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import {Message} from "node-nats-streaming";
 import {Order} from "../../../models/order";
 
-const setup = () => {
+const setup = async () => {
     const listener =  new OrderCreatedListener(natsWrapper.client);
 
     const data: OrderCreatedEvent['data'] = {
